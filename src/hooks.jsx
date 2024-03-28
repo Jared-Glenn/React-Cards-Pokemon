@@ -1,5 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const useFlip = () => {
-    setIsFacingUp(isUp => !isUp);
-  };
+  const [ state, setState ] = useState(true);
+  const toggleState = () => {
+    setState(state => !state)
+  }
+  return [state, toggleState];
+};
+
+export default useFlip;
