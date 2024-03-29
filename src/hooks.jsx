@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import {v1 as uuid} from "uuid";
+import axios from "axios";
 
-const useFlip = () => {
+export const useFlip = () => {
   const [ state, setState ] = useState(true);
   const toggleState = () => {
     setState(state => !state)
@@ -8,4 +10,14 @@ const useFlip = () => {
   return [state, toggleState];
 };
 
-export default useFlip;
+
+export const useAxios = (url) => {
+  const [list, setList ] = useState([]);
+  const addToList = async () => {
+    const response = await axios.get(
+      `${url}`
+    );
+    setList(cards => [...cards, { ...response.data, id: uuid() }]);
+    };
+    return [list, addToList];
+};

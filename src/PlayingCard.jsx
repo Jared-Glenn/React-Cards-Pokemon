@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useFlip from './hooks.jsx';
+import { useFlip } from './hooks.jsx';
 import backOfCard from "./back.png";
 import "./PlayingCard.css"
 
