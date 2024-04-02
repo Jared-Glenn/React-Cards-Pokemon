@@ -13,9 +13,9 @@ export const useFlip = () => {
 
 export const useAxios = (url) => {
   const [list, setList ] = useState([]);
-  const addToList = async () => {
+  const addToList = async (endString = '') => {
     const response = await axios.get(
-      `${url}`
+      `${url}${endString}`
     );
     setList(cards => [...cards, { ...response.data, id: uuid() }]);
     };
